@@ -1,0 +1,23 @@
+<ul class="grid" id="grid">
+    <masonry> 
+            <masonry-brick class="brick" *ngFor="let indeximage of indeximages">
+            <div class='image-container effect'> 
+                
+                <div *ngIf="indeximage.height < indeximage.width ">
+                        <img src ="api/imagefiles/{{indeximage.id}}" width="350" height="233">
+                </div>
+                <div *ngIf="indeximage.height > indeximage.width ">
+                        <img src ="api/imagefiles/{{indeximage.id}}" width="350" height="525">
+                </div>
+                <div class='mask'>   
+                    <h6><br></h6><h6><br> </h6> 
+                        <div  *ngFor="let album of albums">
+                            <div *ngIf="indeximage.albumId == album.id ">
+                                <button id="maskbutton" (click)="showAlbum(album.id)">{{album.name}}</button>
+                            </div> 
+                         </div>
+                </div>  
+            </div> 
+            </masonry-brick>
+    </masonry>   
+</ul>
